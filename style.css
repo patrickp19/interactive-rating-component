@@ -109,6 +109,7 @@ body {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  user-select: none;
 }
 
 .pop-up-card {
@@ -133,10 +134,6 @@ body {
   border-radius: 100em;
 }
 
-.thank-you-state img {
-  /* margin: 0 auto; */
-}
-
 .pop-up-card h1 {
   color: var(--clr-neutral-100);
   font-weight: var(--fw-700);
@@ -157,17 +154,14 @@ body {
 .rating-radio-item-list li {
   line-height: 0;
   background-color: var(--clr-neutral-700);
+  /* overflow:hidden allows us to use absolute position's top, left, right, bottom attributes to create a large label radio/checkbox while staying within the li container */
   overflow: hidden;
   text-align: center;
-  /* padding: 0.6rem 1rem; */
-  /* padding: 1.2rem 1rem; */
   padding: 1.3rem;
-  /* aspect-ratio: 1 /1; */
-  border-radius: 100000em;
+  border-radius: 10rem;
   position: relative;
   z-index: 0;
   color: var(--clr-neutral-300);
-  /* cursor: pointer; */
 }
 
 .rating-state button {
@@ -186,11 +180,10 @@ body {
   display: none;
 }
 
-.rating-radio-item-list li label:hover {
-  /* color: #fff; */
-  cursor: pointer;
+/* all radio buttons will have primary color on hover on default (not checked) and  will change to neutral color (ensured by specificity/order of appearance) when checked by corresponding label */
+*:not(:checked) ~ li:hover {
   background-color: var(--clr-primary-300);
-  color: #fff;
+  color: var(--clr-neutral-100);
 }
 
 #one:checked ~ li.radio-one {
@@ -215,15 +208,11 @@ body {
   color: var(--clr-neutral-100);
 }
 .rating-radio-item-list label {
-  /* padding: 0.6rem 1rem; */
-  border-radius: 100000em;
-  /* aspect-ratio: 1/1; */
   position: absolute;
   top: -1rem;
   left: -1rem;
   bottom: -1rem;
   right: -1rem;
-  /* z-index: 1; */
   cursor: pointer;
   display: flex;
   justify-content: center;
