@@ -89,14 +89,9 @@ body {
 }
 
 .thank-you-state {
-  /* display: flex; */
   display: none;
   align-items: center;
   flex-direction: column;
-}
-
-.rating-state {
-  /* display: none; */
 }
 
 .rating-state li {
