@@ -142,9 +142,14 @@ body {
   text-align: center;
 }
 
+.rating-state input {
+  display: none;
+}
+
 .rating-radio-item-list li {
   line-height: 0;
   background-color: var(--clr-neutral-700);
+  color: var(--clr-neutral-300);
   /* overflow:hidden allows us to use absolute position's top, left, right, bottom attributes to create a large label radio/checkbox while staying within the li container */
   overflow: hidden;
   text-align: center;
@@ -152,48 +157,53 @@ body {
   border-radius: 10rem;
   position: relative;
   z-index: 0;
-  color: var(--clr-neutral-300);
-}
-
-.rating-state button {
-  width: 100%;
-  background-color: var(--clr-primary-300);
-  border-radius: 1.5rem;
-  padding: 0.5em 1em;
-  outline: 0;
-  color: var(--clr-neutral-100);
-  font-size: var(--fs-500);
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-.rating-state input {
-  display: none;
 }
 
 .rating-radio-item-list li:hover {
+  color: var(--clr-neutral-100);
+}
+
+.rating-radio-item-list li::before {
+  content: "";
   background-color: var(--clr-primary-300);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.rating-radio-item-list li:hover::before {
+  content: "";
+  opacity: 1;
+}
+
+#one:checked ~ .rating-radio-item-list li.radio-one,
+#one:checked ~ .rating-radio-item-list li.radio-one::before {
+  background-color: var(--clr-neutral-300);
   color: var(--clr-neutral-100);
 }
 
-#one:checked ~ .rating-radio-item-list li.radio-one {
+#two:checked ~ .rating-radio-item-list li.radio-two,
+#two:checked ~ .rating-radio-item-list li.radio-two::before {
   background-color: var(--clr-neutral-300);
   color: var(--clr-neutral-100);
 }
-
-#two:checked ~ .rating-radio-item-list li.radio-two {
+#three:checked ~ .rating-radio-item-list li.radio-three,
+#three:checked ~ .rating-radio-item-list li.radio-three::before {
   background-color: var(--clr-neutral-300);
   color: var(--clr-neutral-100);
 }
-#three:checked ~ .rating-radio-item-list li.radio-three {
+#four:checked ~ .rating-radio-item-list li.radio-four,
+#four:checked ~ .rating-radio-item-list li.radio-four::before {
   background-color: var(--clr-neutral-300);
   color: var(--clr-neutral-100);
 }
-#four:checked ~ .rating-radio-item-list li.radio-four {
-  background-color: var(--clr-neutral-300);
-  color: var(--clr-neutral-100);
-}
-#five:checked ~ .rating-radio-item-list li.radio-five {
+#five:checked ~ .rating-radio-item-list li.radio-five,
+#five:checked ~ .rating-radio-item-list li.radio-five::before {
   background-color: var(--clr-neutral-300);
   color: var(--clr-neutral-100);
 }
@@ -207,6 +217,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.rating-state button {
+  width: 100%;
+  background-color: var(--clr-primary-300);
+  border-radius: 1.5rem;
+  padding: 0.5em 1em;
+  outline: 0;
+  color: var(--clr-neutral-100);
+  font-size: var(--fs-500);
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .thank-you-state p {
