@@ -1,17 +1,8 @@
 submitBtn = document.getElementById("submit");
 ratingState = document.getElementById("rating-state");
 thankYouState = document.getElementById("thank-you-state");
-// ratingGroupValue = document.querySelector(
-//   'input[name="rating-group"]:checked'
-// ).value;
 ratingMessage = document.getElementById("rating-message");
 
-// submitBtn.onClick(() => {
-//     ratingState.
-
-// });
-
-// console.log(ratingGroupValue);
 function submit() {
   if (
     document.querySelector('input[name="rating-group"]:checked').value != null
